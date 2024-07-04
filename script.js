@@ -1,30 +1,31 @@
-const searchBar = document.querySelector('#search')
-const enterBtn = document.querySelector('#main-btn')
-const mainCont = document.querySelector('#movie-container')
+const searchBar = document.querySelector('#search');
+const enterBtn = document.querySelector('#main-btn');
+const mainCont = document.querySelector('#movie-container');
 const apiKey = '81bcb1ec';
 
-async  function fetchMovies(query) {
-    try {
-        const resp = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${query}`)
+// CORS Anywhere URL
+const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 
+async function fetchMovies(query) {
+    try {
+        const resp = await fetch(`${corsAnywhere}http://www.omdbapi.com/?apikey=${apiKey}&t=${query}`);
         
         if (!resp.ok) {
-            throw new Error('Invalid request')
+            throw new Error('Invalid request');
         }
-        const result = await resp.json()
-        return result
-    }
-        catch (err) {
-            console.log(err)
-            return null
-        }
-}
 
+        const result = await resp.json();
+        return result;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
+}
 
 let generateMovie = (movie) => {
     return `
         <div>
-            <img src="${movie.Poster}" class="main-image" height="350px">
+            <img src="${movie.Poster}" class="main-image" height="350px" alt="${movie.Title}">
         </div>
         
         <div class="main-content">
@@ -55,21 +56,20 @@ let generateMovie = (movie) => {
                 <p>${movie.Awards}</p>
             </div>
         </div>
-    `
+    `;
 }
 
-enterBtn.addEventListener('click', async function(){
-    const query = searchBar.value
-    const movie = await fetchMovies(query)
+enterBtn.addEventListener('click', async function() {
+    const query = searchBar.value;
+    const movie = await fetchMovies(query);
     if (movie && movie.Response === "True") {
-        mainCont.innerHTML = generateMovie(movie)
+        mainCont.innerHTML = generateMovie(movie);
     } else {
         mainCont.innerHTML = `
             <div class="error-cont">
             <h2>Movie has not been found</h2>
             <i class='bx bxs-sad'></i>
             </div>
-        `
+        `;
     }
-   
-})
+});
