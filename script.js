@@ -5,7 +5,7 @@ const apiKey = '81bcb1ec';
 
 async  function fetchMovies(query) {
     try {
-        const resp = (await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${query}`)).json()
+        const resp = (await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${query}`)).json()
         return resp
     }
         catch (err) {
