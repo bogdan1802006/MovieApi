@@ -5,7 +5,11 @@ const apiKey = '81bcb1ec';
 
 async  function fetchMovies(query) {
     try {
-        const resp = (await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${query}`)).json()
+        const resp = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&t=${query}`).json()
+        if (!resp.ok) {
+            throw new Error('Invalid request')
+        }
+
         return resp
     }
         catch (err) {
