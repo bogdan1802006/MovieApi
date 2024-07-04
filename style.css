@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background: #292828;
+        color:#fff;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(49, 47, 47);
+    height: 75px;
+    padding:20px
+}
+
+.title{
+    font-size: 26px;
+    margin-left: 10em;
+    
+}
+.title span{
+    color:rgb(223, 223, 17)
+}
+
+.header input{
+    
+    height: 35px;
+    width: 325px;
+    outline: none;
+    border-radius: 8px;
+    padding:10px;
+    font-size: 16px;
+    border: none;
+}
+
+.search-div{
+    margin-right: 15em;
+}
+
+.main-btn{
+    height: 30px;
+    width: 60px;
+    cursor: pointer;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+}
+
+.movie-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:100px;
+    margin-top: 80px;
+}
+.main-image{
+    /* width: 300px; */
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
+
+.year-ratings-released{
+    display: flex;
+    gap:10px;
+}
+
+.movie-title{
+    color:rgb(223, 223, 17)
+}
+
+.rate{
+    background-color: rgb(223, 223, 17);
+}
+
+.language{
+    color: rgb(223, 223, 17);
+}
+
+
+.plot-container{
+    width: 500px;
+}
+
+.error-cont{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.bxs-sad{
+    text-align: center;
+    font-size: 20px;
+}
+.error-cont h2{
+    color:rgb(185, 20, 20)
+}
